@@ -71,6 +71,7 @@ public class GD_TrangChu extends JPanel {
 		add(horizontalBox);
 		
 		pnlChiTietXe = new JPanel();
+		pnlChiTietXe.setBackground(Color.WHITE);
 		pnlChiTietXe.setPreferredSize(new Dimension(650, 900));
 		horizontalBox.add(pnlChiTietXe);
 		pnlChiTietXe.setLayout(new BoxLayout(pnlChiTietXe, BoxLayout.X_AXIS));
@@ -322,6 +323,7 @@ public class GD_TrangChu extends JPanel {
 		verticalBox.add(rigidArea_16);
 		
 		pnlChiTietHoaDon = new JPanel();
+		pnlChiTietHoaDon.setBackground(Color.WHITE);
 		pnlChiTietHoaDon.setPreferredSize(new Dimension(650, 900));
 		horizontalBox.add(pnlChiTietHoaDon);
 		pnlChiTietHoaDon.setLayout(new BoxLayout(pnlChiTietHoaDon, BoxLayout.X_AXIS));
