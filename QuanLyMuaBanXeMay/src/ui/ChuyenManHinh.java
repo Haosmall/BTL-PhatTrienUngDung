@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 import ui.quanLyHoaDon.GD_HoaDon;
 import ui.quanLyHopDong.GD_HopDong;
 import ui.quanLyKhachHang.GD_KhachHang;
-import ui.quanLyNhaCungCap.GD_NhaCungCap;
 import ui.quanLyNhanVien.GD_NhanVien;
 import ui.quanLyThongKe.GD_ThongKe;
 import ui.quanLyXeMay.GD_XeMay;
@@ -85,10 +84,6 @@ public class ChuyenManHinh {
 				break;
 			case "HopDong":
 				node = new GD_HopDong();
-				setPanel();
-				break;
-			case "NhaCungCap":
-				node = new GD_NhaCungCap();
 				setPanel();
 				break;
 			case "ThongKe":
