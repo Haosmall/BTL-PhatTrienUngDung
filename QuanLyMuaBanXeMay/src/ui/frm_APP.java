@@ -40,8 +40,6 @@ public class frm_APP extends JFrame implements ActionListener, MouseListener {
 	private JLabel lblHopDong;
 	private JPanel pnlKhachHang;
 	private JLabel lblKhachHang;
-	private JPanel pnlNhaCungCap;
-	private JLabel lblNhaCungCap;
 	private JPanel pnlNhanVien;
 	private JLabel lblNhanVien;
 	private JPanel pnlThongKe;
@@ -255,34 +253,6 @@ public class frm_APP extends JFrame implements ActionListener, MouseListener {
 		Component rigidArea_8_5 = Box.createRigidArea(new Dimension(20, 20));
 		verticalBox_1.add(rigidArea_8_5);
 		
-		Box horizontalBox_5_6 = Box.createHorizontalBox();
-		verticalBox_1.add(horizontalBox_5_6);
-		
-		Component rigidArea_10_6 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_5_6.add(rigidArea_10_6);
-		
-		pnlNhaCungCap = new JPanel();
-		pnlNhaCungCap.setBackground(new Color(0, 128, 0));
-		pnlNhaCungCap.setPreferredSize(new Dimension(300, 50));
-		pnlNhaCungCap.setMaximumSize(new Dimension(400, 50));
-		horizontalBox_5_6.add(pnlNhaCungCap);
-		pnlNhaCungCap.setLayout(new BoxLayout(pnlNhaCungCap, BoxLayout.X_AXIS));
-		
-		lblNhaCungCap = new JLabel("Nhà cung cấp");
-		lblNhaCungCap.setMaximumSize(new Dimension(32767, 50));
-		lblNhaCungCap.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNhaCungCap.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNhaCungCap.setForeground(Color.WHITE);
-		lblNhaCungCap.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblNhaCungCap.setBackground(Color.BLACK);
-		pnlNhaCungCap.add(lblNhaCungCap);
-		
-		Component rigidArea_11_6 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_5_6.add(rigidArea_11_6);
-		
-		Component rigidArea_8_6 = Box.createRigidArea(new Dimension(20, 20));
-		verticalBox_1.add(rigidArea_8_6);
-		
 		Box horizontalBox_5_7 = Box.createHorizontalBox();
 		verticalBox_1.add(horizontalBox_5_7);
 		
@@ -384,7 +354,6 @@ public class frm_APP extends JFrame implements ActionListener, MouseListener {
 		listDanhMuc.add(new DanhMuc("NhanVien", pnlNhanVien, lblNhanVien));
 		listDanhMuc.add(new DanhMuc("DangXuat", pnlDangXuat, lblDangXuat));
 		listDanhMuc.add(new DanhMuc("ThongKe", pnlThongKe, lblThongKe));
-		listDanhMuc.add(new DanhMuc("NhaCungCap", pnlNhaCungCap, lblNhaCungCap));
 		listDanhMuc.add(new DanhMuc("HopDong", pnlHopDong, lblHopDong));
 		chuyen.setSuKien(listDanhMuc);
 		lblDangXuat.addMouseListener(this);
