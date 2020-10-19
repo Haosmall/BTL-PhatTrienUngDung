@@ -18,24 +18,20 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import ui.quanLyHopDong.GD_HopDong;
-import ui.quanLyXeMay.GD_XeMay;
-
-public class GD_BaoHanh extends JPanel implements ActionListener {
+public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JButton btnXemChiTiet;
-	private JButton btnCapNhat;
+	private JButton btnLuu;
 	private JTable tblBaoHanh;
 	private JButton btnQuayLai;
 
 	/**
 	 * Create the panel.
 	 */
-	public GD_BaoHanh() {
+	public GD_CapNhatBaoHanh() {
 		setBackground(Color.WHITE);
 		setPreferredSize(new Dimension(1300, 900));
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -53,7 +49,7 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 		horizontalBox.add(pnlThemXe);
 		pnlThemXe.setLayout(new BoxLayout(pnlThemXe, BoxLayout.X_AXIS));
 
-		JLabel lblThemXe = new JLabel("Bảo hành");
+		JLabel lblThemXe = new JLabel("Phiếu bảo hành");
 		lblThemXe.setMaximumSize(new Dimension(37217, 50));
 		lblThemXe.setPreferredSize(new Dimension(1300, 50));
 		lblThemXe.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -121,7 +117,7 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 		rigidArea_9_8_2_2.setMaximumSize(new Dimension(40, 20));
 		horizontalBox_1.add(rigidArea_9_8_2_2);
 
-		JLabel lblNewLabel_1_3 = new JLabel("Mã khách hàng:");
+		JLabel lblNewLabel_1_3 = new JLabel("Mã NV kĩ thuật:");
 		lblNewLabel_1_3.setPreferredSize(new Dimension(170, 40));
 		lblNewLabel_1_3.setMaximumSize(new Dimension(100, 40));
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -153,6 +149,25 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 
 		Component rigidArea_9_5 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_2.add(rigidArea_9_5);
+		
+		JLabel lblNewLabel_1_3_1 = new JLabel("Mã khách hàng:");
+		lblNewLabel_1_3_1.setPreferredSize(new Dimension(170, 40));
+		lblNewLabel_1_3_1.setMaximumSize(new Dimension(100, 40));
+		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_2.add(lblNewLabel_1_3_1);
+		
+		Component rigidArea_10_2_3_1 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_10_2_3_1.setPreferredSize(new Dimension(10, 20));
+		horizontalBox_2.add(rigidArea_10_2_3_1);
+		
+		JLabel lblBh_2_3_1 = new JLabel("BH123456");
+		lblBh_2_3_1.setPreferredSize(new Dimension(120, 40));
+		lblBh_2_3_1.setMaximumSize(new Dimension(100, 40));
+		lblBh_2_3_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_2.add(lblBh_2_3_1);
+		
+		Component rigidArea_9_5_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2.add(rigidArea_9_5_1);
 
 		JLabel lblNewLabel_1 = new JLabel("Tên khách hàng:");
 		lblNewLabel_1.setPreferredSize(new Dimension(170, 40));
@@ -293,6 +308,81 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 
 		Component rigidArea_13_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3.add(rigidArea_13_1);
+		
+		Component rigidArea_3_1 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_3_1.setPreferredSize(new Dimension(40, 40));
+		rigidArea_3_1.setMaximumSize(new Dimension(40, 40));
+		verticalBox.add(rigidArea_3_1);
+		
+		Box horizontalBox_3_1 = Box.createHorizontalBox();
+		verticalBox.add(horizontalBox_3_1);
+		
+		Component rigidArea_11_2_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_3_1.add(rigidArea_11_2_1);
+		
+		JLabel lblNewLabel_1_1_2 = new JLabel("Địa chỉ:");
+		lblNewLabel_1_1_2.setPreferredSize(new Dimension(80, 40));
+		lblNewLabel_1_1_2.setMaximumSize(new Dimension(100, 40));
+		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_3_1.add(lblNewLabel_1_1_2);
+		
+		Component rigidArea_10_2_1_2 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_10_2_1_2.setPreferredSize(new Dimension(10, 20));
+		horizontalBox_3_1.add(rigidArea_10_2_1_2);
+		
+		JLabel lblBh_2_1_2 = new JLabel("............................................................................................");
+		lblBh_2_1_2.setPreferredSize(new Dimension(500, 40));
+		lblBh_2_1_2.setMaximumSize(new Dimension(100, 40));
+		lblBh_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_3_1.add(lblBh_2_1_2);
+		
+		Component rigidArea_9_8_2_1_1_2 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_9_8_2_1_1_2.setPreferredSize(new Dimension(30, 20));
+		rigidArea_9_8_2_1_1_2.setMaximumSize(new Dimension(40, 20));
+		horizontalBox_3_1.add(rigidArea_9_8_2_1_1_2);
+		
+		JLabel lblMHpng_1_1_1 = new JLabel("Mã xe:");
+		lblMHpng_1_1_1.setPreferredSize(new Dimension(80, 40));
+		lblMHpng_1_1_1.setMaximumSize(new Dimension(100, 40));
+		lblMHpng_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_3_1.add(lblMHpng_1_1_1);
+		
+		Component rigidArea_10_1_1_1_1 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_10_1_1_1_1.setPreferredSize(new Dimension(10, 20));
+		horizontalBox_3_1.add(rigidArea_10_1_1_1_1);
+		
+		JLabel lblBh_1_1_1_1 = new JLabel("XM123456");
+		lblBh_1_1_1_1.setPreferredSize(new Dimension(120, 40));
+		lblBh_1_1_1_1.setMaximumSize(new Dimension(100, 40));
+		lblBh_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_3_1.add(lblBh_1_1_1_1);
+		
+		Component rigidArea_9_8_2_1_1_1_1 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_9_8_2_1_1_1_1.setPreferredSize(new Dimension(30, 20));
+		rigidArea_9_8_2_1_1_1_1.setMaximumSize(new Dimension(40, 20));
+		horizontalBox_3_1.add(rigidArea_9_8_2_1_1_1_1);
+		
+		JLabel lblNewLabel_1_2_1_1 = new JLabel("Tên xe:");
+		lblNewLabel_1_2_1_1.setPreferredSize(new Dimension(80, 40));
+		lblNewLabel_1_2_1_1.setMaximumSize(new Dimension(100, 40));
+		lblNewLabel_1_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_3_1.add(lblNewLabel_1_2_1_1);
+		
+		Component rigidArea_10_2_2_1_1 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_10_2_2_1_1.setPreferredSize(new Dimension(10, 20));
+		horizontalBox_3_1.add(rigidArea_10_2_2_1_1);
+		
+		JLabel lblBh_2_2_1_1 = new JLabel("Honda Air Blade 2020");
+		lblBh_2_2_1_1.setPreferredSize(new Dimension(250, 40));
+		lblBh_2_2_1_1.setMaximumSize(new Dimension(100, 40));
+		lblBh_2_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_3_1.add(lblBh_2_2_1_1);
+		
+		Component horizontalGlue_5_1_1_1 = Box.createHorizontalGlue();
+		horizontalBox_3_1.add(horizontalGlue_5_1_1_1);
+		
+		Component rigidArea_13_1_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_3_1.add(rigidArea_13_1_1);
 
 		Component rigidArea_3 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_3.setMaximumSize(new Dimension(40, 40));
@@ -305,21 +395,11 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 		Component rigidArea_9_10 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_4.add(rigidArea_9_10);
 
-		JLabel lblMHpng_1_2 = new JLabel("Thời gian bảo hành:");
+		JLabel lblMHpng_1_2 = new JLabel("Thông tin bảo hành:");
 		lblMHpng_1_2.setPreferredSize(new Dimension(220, 40));
 		lblMHpng_1_2.setMaximumSize(new Dimension(100, 40));
 		lblMHpng_1_2.setFont(new Font("Tahoma", Font.BOLD, 20));
 		horizontalBox_4.add(lblMHpng_1_2);
-
-		Component rigidArea_10_1_1_2 = Box.createRigidArea(new Dimension(20, 20));
-		rigidArea_10_1_1_2.setPreferredSize(new Dimension(10, 20));
-		horizontalBox_4.add(rigidArea_10_1_1_2);
-
-		JLabel lblBh_1_1_2 = new JLabel("36 tháng");
-		lblBh_1_1_2.setPreferredSize(new Dimension(120, 40));
-		lblBh_1_1_2.setMaximumSize(new Dimension(100, 40));
-		lblBh_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		horizontalBox_4.add(lblBh_1_1_2);
 
 		Component horizontalGlue_5_1_2 = Box.createHorizontalGlue();
 		horizontalBox_4.add(horizontalGlue_5_1_2);
@@ -350,15 +430,10 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 		tblBaoHanh.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tblBaoHanh.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"1", "L\u1EA7n 1", null, null},
-				{"2", "L\u1EA7n 2", null, null},
-				{"3", "L\u1EA7n 3", null, null},
-				{"4", "L\u1EA7n 4", null, null},
-				{"5", "L\u1EA7n 5", null, null},
-				{"6", "L\u1EA7n 6", null, null},
+				{"1", "H\u1EC7 th\u1ED1ng phanh", null, null},
 			},
 			new String[] {
-				"STT", "\u0110\u1EE3t b\u1EA3o h\u00E0nh", "Th\u1EDDi gian", "Ghi ch\u00FA"
+				"STT", "Danh m\u1EE5c b\u1EA3o h\u00E0nh", "V\u1EC7 sinh", "Thay th\u1EBF"
 			}
 		));
 		tblBaoHanh.getColumnModel().getColumn(0).setPreferredWidth(36);
@@ -391,25 +466,13 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 		Component horizontalGlue = Box.createHorizontalGlue();
 		horizontalBox_7.add(horizontalGlue);
 
-		btnXemChiTiet = new JButton("Xem chi tiết");
-		btnXemChiTiet.setForeground(Color.WHITE);
-		btnXemChiTiet.setBackground(Color.LIGHT_GRAY);
-		btnXemChiTiet.setPreferredSize(new Dimension(180, 50));
-		btnXemChiTiet.setMaximumSize(new Dimension(150, 50));
-		btnXemChiTiet.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_7.add(btnXemChiTiet);
-
-		Component rigidArea_17 = Box.createRigidArea(new Dimension(20, 20));
-		rigidArea_17.setPreferredSize(new Dimension(30, 20));
-		horizontalBox_7.add(rigidArea_17);
-
-		btnCapNhat = new JButton("Cập nhật");
-		btnCapNhat.setForeground(Color.WHITE);
-		btnCapNhat.setBackground(new Color(0, 128, 0));
-		btnCapNhat.setPreferredSize(new Dimension(170, 50));
-		btnCapNhat.setMaximumSize(new Dimension(120, 50));
-		btnCapNhat.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_7.add(btnCapNhat);
+		btnLuu = new JButton("Lưu");
+		btnLuu.setForeground(Color.WHITE);
+		btnLuu.setBackground(new Color(0, 128, 0));
+		btnLuu.setPreferredSize(new Dimension(170, 50));
+		btnLuu.setMaximumSize(new Dimension(120, 50));
+		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_7.add(btnLuu);
 
 		Component rigidArea_16 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_7.add(rigidArea_16);
@@ -421,8 +484,7 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 	}
 
 	public void dangKiSuKien() {
-		btnCapNhat.addActionListener(this);
-		btnXemChiTiet.addActionListener(this);
+		btnLuu.addActionListener(this);
 		btnQuayLai.addActionListener(this);
 	}
 
@@ -430,22 +492,16 @@ public class GD_BaoHanh extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object o = e.getSource();
-		if (o.equals(btnXemChiTiet)) {
-			this.removeAll();
-			this.setLayout(new BorderLayout());
-			this.add(new GD_ChiTietBaoHanh());
-			this.validate();
-			this.repaint();
-		}else if (o.equals(btnCapNhat)) {
-			this.removeAll();
-			this.setLayout(new BorderLayout());
-			this.add(new GD_CapNhatBaoHanh());
-			this.validate();
-			this.repaint();
+		if (o.equals(btnLuu)) {
+//			this.removeAll();
+//			this.setLayout(new BorderLayout());
+//			this.add(new GD_XeMay());
+//			this.validate();
+//			this.repaint();
 		}else if (o.equals(btnQuayLai)) {
 			this.removeAll();
 			this.setLayout(new BorderLayout());
-			this.add(new GD_HopDong());
+			this.add(new GD_BaoHanh());
 			this.validate();
 			this.repaint();
 		}

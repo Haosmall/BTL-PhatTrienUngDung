@@ -2,6 +2,7 @@ package ui.quanLyHoaDon;
 
 import javax.swing.JPanel;
 import java.awt.Dimension;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.Box;
 import java.awt.Component;
@@ -9,15 +10,22 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import ui.GD_TrangChu;
+import ui.quanLyXeMay.GD_CapNhatXeMay;
+
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
-public class GD_HoaDon extends JPanel {
+public class GD_HoaDon extends JPanel implements ActionListener{
 
 	/**
 	 * 
@@ -220,7 +228,31 @@ public class GD_HoaDon extends JPanel {
 		
 		Component verticalGlue = Box.createVerticalGlue();
 		verticalBox.add(verticalGlue);
+		
+		dangKiSuKien();
+	}
+	public void dangKiSuKien() {
+		btnCuoi.addActionListener(this);
+		btnDau.addActionListener(this);
+		btnSau.addActionListener(this);
+		btnThem.addActionListener(this);
+		btnTruoc.addActionListener(this);
+		btnXemChiTiet.addActionListener(this);
+	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Object o = e.getSource();
+		if(o.equals(btnThem)) {
+			this.removeAll();
+			this.setLayout(new BorderLayout());
+			this.add(new GD_TrangChu());
+			this.validate();
+			this.repaint();
+		}else if (o.equals(btnXemChiTiet)) {
+			new GD_ChiTietHoaDon().setVisible(true);
+		}
 	}
 
 }

@@ -1,23 +1,30 @@
 package ui.quanLyHopDong;
 
-import javax.swing.JPanel;
-import java.awt.Dimension;
+import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.Box;
 import java.awt.Component;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
 
-public class GD_HopDong extends JPanel {
+import ui.GD_TrangChu;
+import ui.quanLyBaoHanh.GD_BaoHanh;
+
+public class GD_HopDong extends JPanel implements ActionListener{
 
 	/**
 	 * 
@@ -219,7 +226,32 @@ public class GD_HopDong extends JPanel {
 		
 		Component verticalGlue = Box.createVerticalGlue();
 		verticalBox.add(verticalGlue);
+		
+		dangKiSuKien();
 
+	}
+
+	private void dangKiSuKien() {
+		btnBaoHanh.addActionListener(this);
+		btnXemChiTiet.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object o = e.getSource();
+		if(o.equals(btnBaoHanh)) {
+			this.removeAll();
+			this.setLayout(new BorderLayout());
+			this.add(new GD_BaoHanh());
+			this.validate();
+			this.repaint();
+		}else if (o.equals(btnXemChiTiet)) {
+			this.removeAll();
+			this.setLayout(new BorderLayout());
+			this.add(new GD_ChiTietHD());
+			this.validate();
+			this.repaint();
+		}
 	}
 
 }

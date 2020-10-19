@@ -18,6 +18,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Color;
@@ -106,19 +108,26 @@ public class TestJFileChooser extends JFrame implements ActionListener, MouseLis
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		
-		JFileChooser fileChooser = new JFileChooser();
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+			JFileChooser fileChooser = new JFileChooser();
 
-		FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("jpg", "png", "jpg");
-		fileChooser.setFileFilter(imgFilter);
-		fileChooser.setMultiSelectionEnabled(false);
-
-		int x = fileChooser.showDialog(this, "Open");
-		if (x == JFileChooser.APPROVE_OPTION) {
-			File f = fileChooser.getSelectedFile();
-			lblImg.setIcon(new ImageIcon(
-					new ImageIcon(f.getAbsolutePath()).getImage().getScaledInstance(pnlImg.getWidth(), pnlImg.getHeight(), Image.SCALE_DEFAULT)));
+			FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("jpg", "png", "jpg");
+			fileChooser.setFileFilter(imgFilter);
+			fileChooser.setMultiSelectionEnabled(false);
+			
+			int x = fileChooser.showDialog(this, "Open");
+			if (x == JFileChooser.APPROVE_OPTION) {
+				File f = fileChooser.getSelectedFile();
+				lblImg.setIcon(new ImageIcon(
+						new ImageIcon(f.getAbsolutePath()).getImage().getScaledInstance(pnlImg.getWidth(), pnlImg.getHeight(), Image.SCALE_DEFAULT)));
+			}
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
+		
 	}
 
 	@Override

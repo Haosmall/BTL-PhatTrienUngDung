@@ -32,7 +32,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class GD_ThemXeMay extends JPanel implements ActionListener {
+public class GD_CapNhatXeMay extends JPanel implements ActionListener {
 
 	/**
 	 * 
@@ -41,7 +41,6 @@ public class GD_ThemXeMay extends JPanel implements ActionListener {
 	private JTextField txtMaXe;
 	private JTextField txtTenXe;
 	private JButton btnQuayLai;
-	private JButton btnXoaRong;
 	private JButton btnLuu;
 	private JComboBox cboHang;
 	private JComboBox cboDongXe;
@@ -61,7 +60,7 @@ public class GD_ThemXeMay extends JPanel implements ActionListener {
 	/**
 	 * Create the panel.
 	 */
-	public GD_ThemXeMay() {
+	public GD_CapNhatXeMay() {
 		setBackground(Color.WHITE);
 		setPreferredSize(new Dimension(1300, 900));
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -79,7 +78,7 @@ public class GD_ThemXeMay extends JPanel implements ActionListener {
 		horizontalBox.add(pnlThemXe);
 		pnlThemXe.setLayout(new BoxLayout(pnlThemXe, BoxLayout.X_AXIS));
 
-		JLabel lblThemXe = new JLabel("Thêm xe máy");
+		JLabel lblThemXe = new JLabel("Cập nhật xe máy");
 		lblThemXe.setMaximumSize(new Dimension(37217, 50));
 		lblThemXe.setPreferredSize(new Dimension(1300, 50));
 		lblThemXe.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -519,7 +518,7 @@ public class GD_ThemXeMay extends JPanel implements ActionListener {
 		txtAnh.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtAnh.setPreferredSize(new Dimension(650, 40));
 		txtAnh.setMaximumSize(new Dimension(700, 40));
-		txtAnh.setColumns(21);
+		txtAnh.setColumns(20);
 		horizontalBox_4.add(txtAnh);
 
 		Component rigidArea_9_12_1 = Box.createRigidArea(new Dimension(20, 20));
@@ -605,14 +604,6 @@ public class GD_ThemXeMay extends JPanel implements ActionListener {
 		Component horizontalGlue = Box.createHorizontalGlue();
 		horizontalBox_7.add(horizontalGlue);
 
-		btnXoaRong = new JButton("Xóa rỗng");
-		btnXoaRong.setForeground(Color.WHITE);
-		btnXoaRong.setBackground(Color.RED);
-		btnXoaRong.setPreferredSize(new Dimension(150, 50));
-		btnXoaRong.setMaximumSize(new Dimension(120, 50));
-		btnXoaRong.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_7.add(btnXoaRong);
-
 		Component rigidArea_17 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_17.setPreferredSize(new Dimension(30, 20));
 		horizontalBox_7.add(rigidArea_17);
@@ -640,7 +631,6 @@ public class GD_ThemXeMay extends JPanel implements ActionListener {
 	public void dangKiSuKien() {
 		btnLuu.addActionListener(this);
 		btnQuayLai.addActionListener(this);
-		btnXoaRong.addActionListener(this);
 		btnChonFile.addActionListener(this);
 	}
 
@@ -669,7 +659,6 @@ public class GD_ThemXeMay extends JPanel implements ActionListener {
 							.getScaledInstance(pnlAnh.getWidth(), pnlAnh.getHeight(), Image.SCALE_DEFAULT)));
 					txtAnh.setText(f.getPath());
 				}
-				
 				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 				
 //				UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");

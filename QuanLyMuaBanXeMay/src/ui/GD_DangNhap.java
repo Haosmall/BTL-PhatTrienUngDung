@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 public class GD_DangNhap extends JFrame implements ActionListener, MouseListener, KeyListener {
@@ -52,6 +54,17 @@ public class GD_DangNhap extends JFrame implements ActionListener, MouseListener
 	 * Create the frame.
 	 */
 	public GD_DangNhap() {
+		// setLookAndFeel
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+			
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		  
+		 
 		setTitle("Đăng nhập");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 666, 371);
@@ -159,7 +172,8 @@ public class GD_DangNhap extends JFrame implements ActionListener, MouseListener
 //		Test
 		txtTaiKhoan.setText("18055671");
 		txtMatKhau.setText("123456");
-
+		
+		
 	}
 
 	@Override

@@ -264,17 +264,24 @@ public class GD_XeMay extends JPanel implements ActionListener{
 		btnXemChiTiet.addActionListener(this);
 		btnXoa.addActionListener(this);
 	}
-
+	public void chuyenManHinh(JPanel panel) {
+		this.removeAll();
+		this.setLayout(new BorderLayout());
+		this.add(panel);
+		this.validate();
+		this.repaint();
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object o = e.getSource();
 		if(o.equals(btnThem)) {
-			this.removeAll();
-			this.setLayout(new BorderLayout());
-			this.add(new GD_ThemXeMay());
-			this.validate();
-			this.repaint();
+			chuyenManHinh(new GD_ThemXeMay());
+		}else if (o.equals(btnCapNhat)) {
+			chuyenManHinh(new GD_CapNhatXeMay());
+		}else if (o.equals(btnXemChiTiet)) {
+			chuyenManHinh(new GD_XemChiTietXeMay());
 		}
 		
 	}
