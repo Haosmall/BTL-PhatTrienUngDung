@@ -1,30 +1,35 @@
 package ui.quanLyNhanVien;
 
-import javax.swing.JPanel;
-import java.awt.Dimension;
+import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.Box;
 import java.awt.Component;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GD_NhanVien extends JPanel {
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+
+public class GD_NhanVien extends JPanel implements ActionListener{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtTimKiem;
-	private JTable tblXe;
+	private JTable tblNVHanhChinh;
 	private JTextField txtTrang;
 	private JPanel pnlXeMay;
 	private JLabel lblNhanVien;
@@ -38,6 +43,7 @@ public class GD_NhanVien extends JPanel {
 	private JButton btnXoa;
 	private JButton btnCapNhat;
 	private JButton btnThem;
+	private JTable tblNVKyThuat;
 
 	/**
 	 * Create the panel.
@@ -114,11 +120,15 @@ public class GD_NhanVien extends JPanel {
 		Component rigidArea_8 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_2.add(rigidArea_8);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		horizontalBox_2.add(scrollPane);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		horizontalBox_2.add(tabbedPane);
 		
-		tblXe = new JTable();
-		tblXe.setModel(new DefaultTableModel(
+		JScrollPane scrollPane = new JScrollPane();
+		tabbedPane.addTab("Nhân viên hành chính", null, scrollPane, null);
+		
+		tblNVHanhChinh = new JTable();
+		scrollPane.setViewportView(tblNVHanhChinh);
+		tblNVHanhChinh.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null},
 			},
@@ -126,7 +136,21 @@ public class GD_NhanVien extends JPanel {
 				"STT", "M\u00E3 xe", "T\u00EAn xe", "H\u00E3ng", "Nh\u00E0 cung c\u1EA5p", "S\u1ED1 l\u01B0\u1EE3ng", "Gi\u00E1", "B\u1EA3o h\u00E0nh"
 			}
 		));
-		scrollPane.setViewportView(tblXe);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		tabbedPane.addTab("Nhân viên kĩ thuật", null, scrollPane_1, null);
+		
+		tblNVKyThuat = new JTable();
+		tblNVKyThuat.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		scrollPane_1.setViewportView(tblNVKyThuat);
 		
 		Component rigidArea_7 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_2.add(rigidArea_7);
@@ -246,7 +270,43 @@ public class GD_NhanVien extends JPanel {
 		
 		Component verticalGlue = Box.createVerticalGlue();
 		verticalBox.add(verticalGlue);
-
+		
+		dangKiSuKien();
 	}
+
+	private void dangKiSuKien() {
+		btnCapNhat.addActionListener(this);
+		btnCuoi.addActionListener(this);
+		btnDau.addActionListener(this);
+		btnSau.addActionListener(this);
+		btnThem.addActionListener(this);
+		btnTruoc.addActionListener(this);
+		btnXemChiTiet.addActionListener(this);
+		btnXoa.addActionListener(this);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object o = e.getSource();
+		if(o.equals(btnThem)) {
+			this.removeAll();
+			this.setLayout(new BorderLayout());
+			this.add(new GD_ThemNhanVien());
+			this.validate();
+			this.repaint();
+			
+		}else if (o.equals(btnCapNhat)) {
+			this.removeAll();
+			this.setLayout(new BorderLayout());
+			this.add(new GD_CapNhatNhanVien());
+			this.validate();
+			this.repaint();
+		}else if (o.equals(btnXemChiTiet)) {
+			new GD_ChiTietNVHanhChinh().setVisible(true);
+		}
+		
+	}
+
+	
 
 }

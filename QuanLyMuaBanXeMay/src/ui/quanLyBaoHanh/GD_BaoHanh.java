@@ -19,7 +19,6 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 import ui.quanLyHopDong.GD_HopDong;
-import ui.quanLyXeMay.GD_XeMay;
 
 public class GD_BaoHanh extends JPanel implements ActionListener {
 

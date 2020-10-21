@@ -54,16 +54,14 @@ public class GD_DangNhap extends JFrame implements ActionListener, MouseListener
 	 * Create the frame.
 	 */
 	public GD_DangNhap() {
-		// setLookAndFeel
-		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-			
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		  
+		/*
+		 * // setLookAndFeel try {
+		 * UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+		 * 
+		 * } catch (ClassNotFoundException | InstantiationException |
+		 * IllegalAccessException | UnsupportedLookAndFeelException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 */ 
 		 
 		setTitle("Đăng nhập");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -120,7 +118,7 @@ public class GD_DangNhap extends JFrame implements ActionListener, MouseListener
 		btnDangNhap.setBounds(409, 255, 132, 34);
 		contentPane.add(btnDangNhap);
 
-		btnHuy = new JButton("Hủy");
+		btnHuy = new JButton("Thoát");
 		btnHuy.setIcon(new ImageIcon(GD_DangNhap.class.getResource("/img/baseline_close_white_24dp.png")));
 		btnHuy.addActionListener(this);
 		btnHuy.setForeground(new Color(255, 255, 255));
@@ -184,9 +182,7 @@ public class GD_DangNhap extends JFrame implements ActionListener, MouseListener
 			this.setVisible(false);
 			new frm_APP().setVisible(true);
 		} else if (o.equals(btnHuy)) {
-			txtTaiKhoan.requestFocus();
-			txtTaiKhoan.selectAll();
-			txtMatKhau.setText("");
+			this.setVisible(false);
 		}
 	}
 

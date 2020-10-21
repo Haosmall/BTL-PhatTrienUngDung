@@ -21,8 +21,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import ui.GD_TrangChu;
 import ui.quanLyBaoHanh.GD_BaoHanh;
+import ui.quanLyHoaDon.GD_ChiTietHoaDon;
 
 public class GD_HopDong extends JPanel implements ActionListener{
 
@@ -246,11 +246,12 @@ public class GD_HopDong extends JPanel implements ActionListener{
 			this.validate();
 			this.repaint();
 		}else if (o.equals(btnXemChiTiet)) {
-			this.removeAll();
-			this.setLayout(new BorderLayout());
-			this.add(new GD_ChiTietHD());
-			this.validate();
-			this.repaint();
+//			this.removeAll();
+//			this.setLayout(new BorderLayout());
+//			this.add(new GD_ChiTietHD());
+//			this.validate();
+//			this.repaint();
+			new GD_ChiTietHoaDon().setVisible(true);
 		}
 	}
 

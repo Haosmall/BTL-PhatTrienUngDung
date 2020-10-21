@@ -7,12 +7,18 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -27,6 +33,9 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 	private JButton btnLuu;
 	private JTable tblBaoHanh;
 	private JButton btnQuayLai;
+	private JButton btnThem;
+	private JComboBox comboBox;
+	private JButton btnXoa;
 
 	/**
 	 * Create the panel.
@@ -60,7 +69,7 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 
 		Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea.setMaximumSize(new Dimension(40, 40));
-		rigidArea.setPreferredSize(new Dimension(40, 40));
+		rigidArea.setPreferredSize(new Dimension(40, 25));
 		verticalBox.add(rigidArea);
 
 		Box horizontalBox_1 = Box.createHorizontalBox();
@@ -141,7 +150,7 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 
 		Component rigidArea_1 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_1.setMaximumSize(new Dimension(40, 40));
-		rigidArea_1.setPreferredSize(new Dimension(40, 40));
+		rigidArea_1.setPreferredSize(new Dimension(40, 25));
 		verticalBox.add(rigidArea_1);
 
 		Box horizontalBox_2 = Box.createHorizontalBox();
@@ -149,23 +158,23 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 
 		Component rigidArea_9_5 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_2.add(rigidArea_9_5);
-		
+
 		JLabel lblNewLabel_1_3_1 = new JLabel("Mã khách hàng:");
 		lblNewLabel_1_3_1.setPreferredSize(new Dimension(170, 40));
 		lblNewLabel_1_3_1.setMaximumSize(new Dimension(100, 40));
 		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		horizontalBox_2.add(lblNewLabel_1_3_1);
-		
+
 		Component rigidArea_10_2_3_1 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_10_2_3_1.setPreferredSize(new Dimension(10, 20));
 		horizontalBox_2.add(rigidArea_10_2_3_1);
-		
+
 		JLabel lblBh_2_3_1 = new JLabel("BH123456");
 		lblBh_2_3_1.setPreferredSize(new Dimension(120, 40));
 		lblBh_2_3_1.setMaximumSize(new Dimension(100, 40));
 		lblBh_2_3_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		horizontalBox_2.add(lblBh_2_3_1);
-		
+
 		Component rigidArea_9_5_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_2.add(rigidArea_9_5_1);
 
@@ -235,7 +244,7 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 
 		Component rigidArea_2 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_2.setMaximumSize(new Dimension(40, 40));
-		rigidArea_2.setPreferredSize(new Dimension(40, 40));
+		rigidArea_2.setPreferredSize(new Dimension(40, 25));
 		verticalBox.add(rigidArea_2);
 
 		Box horizontalBox_3 = Box.createHorizontalBox();
@@ -308,85 +317,86 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 
 		Component rigidArea_13_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3.add(rigidArea_13_1);
-		
+
 		Component rigidArea_3_1 = Box.createRigidArea(new Dimension(20, 20));
-		rigidArea_3_1.setPreferredSize(new Dimension(40, 40));
+		rigidArea_3_1.setPreferredSize(new Dimension(40, 25));
 		rigidArea_3_1.setMaximumSize(new Dimension(40, 40));
 		verticalBox.add(rigidArea_3_1);
-		
+
 		Box horizontalBox_3_1 = Box.createHorizontalBox();
 		verticalBox.add(horizontalBox_3_1);
-		
+
 		Component rigidArea_11_2_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1.add(rigidArea_11_2_1);
-		
+
 		JLabel lblNewLabel_1_1_2 = new JLabel("Địa chỉ:");
 		lblNewLabel_1_1_2.setPreferredSize(new Dimension(80, 40));
 		lblNewLabel_1_1_2.setMaximumSize(new Dimension(100, 40));
 		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 20));
 		horizontalBox_3_1.add(lblNewLabel_1_1_2);
-		
+
 		Component rigidArea_10_2_1_2 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_10_2_1_2.setPreferredSize(new Dimension(10, 20));
 		horizontalBox_3_1.add(rigidArea_10_2_1_2);
-		
-		JLabel lblBh_2_1_2 = new JLabel("............................................................................................");
+
+		JLabel lblBh_2_1_2 = new JLabel(
+				"............................................................................................");
 		lblBh_2_1_2.setPreferredSize(new Dimension(500, 40));
 		lblBh_2_1_2.setMaximumSize(new Dimension(100, 40));
 		lblBh_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		horizontalBox_3_1.add(lblBh_2_1_2);
-		
+
 		Component rigidArea_9_8_2_1_1_2 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_9_8_2_1_1_2.setPreferredSize(new Dimension(30, 20));
 		rigidArea_9_8_2_1_1_2.setMaximumSize(new Dimension(40, 20));
 		horizontalBox_3_1.add(rigidArea_9_8_2_1_1_2);
-		
+
 		JLabel lblMHpng_1_1_1 = new JLabel("Mã xe:");
 		lblMHpng_1_1_1.setPreferredSize(new Dimension(80, 40));
 		lblMHpng_1_1_1.setMaximumSize(new Dimension(100, 40));
 		lblMHpng_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		horizontalBox_3_1.add(lblMHpng_1_1_1);
-		
+
 		Component rigidArea_10_1_1_1_1 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_10_1_1_1_1.setPreferredSize(new Dimension(10, 20));
 		horizontalBox_3_1.add(rigidArea_10_1_1_1_1);
-		
+
 		JLabel lblBh_1_1_1_1 = new JLabel("XM123456");
 		lblBh_1_1_1_1.setPreferredSize(new Dimension(120, 40));
 		lblBh_1_1_1_1.setMaximumSize(new Dimension(100, 40));
 		lblBh_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		horizontalBox_3_1.add(lblBh_1_1_1_1);
-		
+
 		Component rigidArea_9_8_2_1_1_1_1 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_9_8_2_1_1_1_1.setPreferredSize(new Dimension(30, 20));
 		rigidArea_9_8_2_1_1_1_1.setMaximumSize(new Dimension(40, 20));
 		horizontalBox_3_1.add(rigidArea_9_8_2_1_1_1_1);
-		
+
 		JLabel lblNewLabel_1_2_1_1 = new JLabel("Tên xe:");
 		lblNewLabel_1_2_1_1.setPreferredSize(new Dimension(80, 40));
 		lblNewLabel_1_2_1_1.setMaximumSize(new Dimension(100, 40));
 		lblNewLabel_1_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		horizontalBox_3_1.add(lblNewLabel_1_2_1_1);
-		
+
 		Component rigidArea_10_2_2_1_1 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_10_2_2_1_1.setPreferredSize(new Dimension(10, 20));
 		horizontalBox_3_1.add(rigidArea_10_2_2_1_1);
-		
+
 		JLabel lblBh_2_2_1_1 = new JLabel("Honda Air Blade 2020");
 		lblBh_2_2_1_1.setPreferredSize(new Dimension(250, 40));
 		lblBh_2_2_1_1.setMaximumSize(new Dimension(100, 40));
 		lblBh_2_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		horizontalBox_3_1.add(lblBh_2_2_1_1);
-		
+
 		Component horizontalGlue_5_1_1_1 = Box.createHorizontalGlue();
 		horizontalBox_3_1.add(horizontalGlue_5_1_1_1);
-		
+
 		Component rigidArea_13_1_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1.add(rigidArea_13_1_1);
 
 		Component rigidArea_3 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_3.setMaximumSize(new Dimension(40, 40));
-		rigidArea_3.setPreferredSize(new Dimension(40, 40));
+		rigidArea_3.setPreferredSize(new Dimension(40, 25));
 		verticalBox.add(rigidArea_3);
 
 		Box horizontalBox_4 = Box.createHorizontalBox();
@@ -419,23 +429,17 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 		horizontalBox_6.add(rigidArea_9_4_1);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setPreferredSize(new Dimension(1260, 5));
+		scrollPane.setPreferredSize(new Dimension(1260, 270));
 		horizontalBox_6.add(scrollPane);
 
 		tblBaoHanh = new JTable();
-		tblBaoHanh.setPreferredSize(new Dimension(1260, 150));
+		tblBaoHanh.setPreferredSize(new Dimension(1260, 220));
 		tblBaoHanh.setIntercellSpacing(new Dimension(5, 5));
 		tblBaoHanh.setRowMargin(2);
 		tblBaoHanh.setRowHeight(25);
 		tblBaoHanh.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		tblBaoHanh.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"1", "H\u1EC7 th\u1ED1ng phanh", null, null},
-			},
-			new String[] {
-				"STT", "Danh m\u1EE5c b\u1EA3o h\u00E0nh", "V\u1EC7 sinh", "Thay th\u1EBF"
-			}
-		));
+		tblBaoHanh.setModel(new DefaultTableModel(new Object[][] { { "1", "H\u1EC7 th\u1ED1ng phanh", null, null }, },
+				new String[] { "STT", "Danh m\u1EE5c b\u1EA3o h\u00E0nh", "V\u1EC7 sinh", "Thay th\u1EBF" }));
 		tblBaoHanh.getColumnModel().getColumn(0).setPreferredWidth(36);
 		tblBaoHanh.getColumnModel().getColumn(1).setPreferredWidth(150);
 		tblBaoHanh.getColumnModel().getColumn(2).setPreferredWidth(300);
@@ -446,8 +450,76 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 
 		Component rigidArea_6 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_6.setMaximumSize(new Dimension(40, 40));
-		rigidArea_6.setPreferredSize(new Dimension(40, 40));
+		rigidArea_6.setPreferredSize(new Dimension(40, 25));
 		verticalBox.add(rigidArea_6);
+
+		Box horizontalBox_4_1 = Box.createHorizontalBox();
+		verticalBox.add(horizontalBox_4_1);
+
+		Component rigidArea_9_10_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_4_1.add(rigidArea_9_10_1);
+
+		JLabel lblMHpng_1_2_1 = new JLabel("Thông tin bảo hành:");
+		lblMHpng_1_2_1.setPreferredSize(new Dimension(220, 40));
+		lblMHpng_1_2_1.setMaximumSize(new Dimension(100, 40));
+		lblMHpng_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_4_1.add(lblMHpng_1_2_1);
+
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Hệ thống phanh", "" }));
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		comboBox.setMaximumSize(new Dimension(500, 40));
+		comboBox.setPreferredSize(new Dimension(200, 40));
+		horizontalBox_4_1.add(comboBox);
+
+		JPopupMenu popupMenu = new JPopupMenu();
+		addPopup(comboBox, popupMenu);
+
+		JMenuItem menuItmThemBH = new JMenuItem("Thêm mục bảo hành");
+		popupMenu.add(menuItmThemBH);
+
+		JMenuItem menuItmSuaBH = new JMenuItem("Sửa mục bảo hành");
+		popupMenu.add(menuItmSuaBH);
+
+		JMenuItem menuItmXoaBH = new JMenuItem("Xóa mục bảo hành");
+		popupMenu.add(menuItmXoaBH);
+
+		Component rigidArea_9_8_2_1_1_2_1 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_9_8_2_1_1_2_1.setPreferredSize(new Dimension(30, 20));
+		rigidArea_9_8_2_1_1_2_1.setMaximumSize(new Dimension(40, 20));
+		horizontalBox_4_1.add(rigidArea_9_8_2_1_1_2_1);
+
+		btnThem = new JButton("Thêm");
+		btnThem.setPreferredSize(new Dimension(120, 40));
+		btnThem.setMaximumSize(new Dimension(120, 50));
+		btnThem.setForeground(Color.WHITE);
+		btnThem.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnThem.setBackground(new Color(0, 128, 0));
+		horizontalBox_4_1.add(btnThem);
+
+		Component rigidArea_9_8_2_1_1_2_2 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_9_8_2_1_1_2_2.setPreferredSize(new Dimension(30, 20));
+		rigidArea_9_8_2_1_1_2_2.setMaximumSize(new Dimension(40, 20));
+		horizontalBox_4_1.add(rigidArea_9_8_2_1_1_2_2);
+
+		btnXoa = new JButton("Xóa");
+		btnXoa.setPreferredSize(new Dimension(120, 40));
+		btnXoa.setMaximumSize(new Dimension(120, 50));
+		btnXoa.setForeground(Color.WHITE);
+		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnXoa.setBackground(new Color(0, 128, 0));
+		horizontalBox_4_1.add(btnXoa);
+
+		Component horizontalGlue_5_1_2_1 = Box.createHorizontalGlue();
+		horizontalBox_4_1.add(horizontalGlue_5_1_2_1);
+
+		Component rigidArea_9_12_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_4_1.add(rigidArea_9_12_1);
+
+		Component rigidArea_3_2 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_3_2.setPreferredSize(new Dimension(40, 25));
+		rigidArea_3_2.setMaximumSize(new Dimension(40, 40));
+		verticalBox.add(rigidArea_3_2);
 
 		Box horizontalBox_7 = Box.createHorizontalBox();
 		verticalBox.add(horizontalBox_7);
@@ -455,7 +527,7 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 		Component rigidArea_15 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_7.add(rigidArea_15);
 
-		 btnQuayLai = new JButton("Quay lại");
+		btnQuayLai = new JButton("Quay lại");
 		btnQuayLai.setPreferredSize(new Dimension(150, 50));
 		btnQuayLai.setMaximumSize(new Dimension(120, 50));
 		btnQuayLai.setForeground(Color.WHITE);
@@ -498,7 +570,7 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 //			this.add(new GD_XeMay());
 //			this.validate();
 //			this.repaint();
-		}else if (o.equals(btnQuayLai)) {
+		} else if (o.equals(btnQuayLai)) {
 			this.removeAll();
 			this.setLayout(new BorderLayout());
 			this.add(new GD_BaoHanh());
@@ -506,5 +578,25 @@ public class GD_CapNhatBaoHanh extends JPanel implements ActionListener {
 			this.repaint();
 		}
 
+	}
+
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
 	}
 }

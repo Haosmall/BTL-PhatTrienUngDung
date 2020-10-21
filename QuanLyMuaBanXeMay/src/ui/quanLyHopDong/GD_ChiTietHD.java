@@ -8,6 +8,11 @@ import javax.swing.JPanel;
 public class GD_ChiTietHD extends JPanel {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Create the panel.
 	 */
 	public GD_ChiTietHD() {

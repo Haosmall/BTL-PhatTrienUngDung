@@ -22,6 +22,7 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 import ui.quanLyHoaDon.GD_ChiTietHoaDon;
+import ui.quanLyXeMay.GD_XemChiTietXeMay;
 
 import javax.swing.border.TitledBorder;
 import javax.swing.ImageIcon;
@@ -690,6 +691,8 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Object o = e.getSource();
 		if(o.equals(btnThanhToan)) {
 			new GD_ChiTietHoaDon().setVisible(true);
+		}else if(o.equals(btnXemChiTiet)) {
+			new GD_XemChiTietXeMay().setVisible(true);
 		}
 	}
 
