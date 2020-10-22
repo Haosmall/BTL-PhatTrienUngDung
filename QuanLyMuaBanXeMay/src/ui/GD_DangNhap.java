@@ -54,14 +54,16 @@ public class GD_DangNhap extends JFrame implements ActionListener, MouseListener
 	 * Create the frame.
 	 */
 	public GD_DangNhap() {
+		
 		/*
 		 * // setLookAndFeel try {
 		 * UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-		 * 
 		 * } catch (ClassNotFoundException | InstantiationException |
 		 * IllegalAccessException | UnsupportedLookAndFeelException e) { // TODO
 		 * Auto-generated catch block e.printStackTrace(); }
-		 */ 
+		 */
+		  
+		  
 		 
 		setTitle("Đăng nhập");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

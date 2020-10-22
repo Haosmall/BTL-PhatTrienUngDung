@@ -7,10 +7,10 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -19,13 +19,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import ui.quanLyHoaDon.GD_ChiTietHoaDon;
-import ui.quanLyXeMay.GD_XemChiTietXeMay;
-
-import javax.swing.border.TitledBorder;
-import javax.swing.ImageIcon;
+import ui.quanLyKhachHang.GD_ThemKhachHang;
+import ui.quanLyXeMay.GD_ChiTietXeMay;
 
 public class GD_TrangChu extends JPanel implements ActionListener {
 	/**
@@ -36,7 +35,6 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 	private JTable tblXe;
 	private JTextField txtTrang;
 	private JTextField txtSoLuong;
-	private JTextField txtMaHoaDon;
 	private JPanel pnlChiTietXe;
 	private JPanel pnlThongTinXe;
 	private JLabel lblThongTinXe;
@@ -52,16 +50,10 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 	private JPanel pnlThongTinHoaDon;
 	private JLabel lblThongTinHoaDon;
 	private JLabel lblMaHoaDon;
-	private JTextField txtNgayLap;
 	private JTextField txtSoCMT;
-	private JTextField txtTenKhachHang;
 	private JTextField txtSoDienThoai;
-	private JTextField txtNamSinh;
-	private JTextField txtDiaChi;
 	private JTable tblHoaDon;
-	private JTextField txtTongTien;
 	private JTextField txtTienKhachTra;
-	private JTextField txtTienTraLai;
 	private JButton btnThanhToan;
 	private JButton btnSua;
 	private JButton btnTaoMoi;
@@ -81,6 +73,7 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		add(horizontalBox);
 
 		pnlChiTietXe = new JPanel();
+		pnlChiTietXe.setBackground(Color.WHITE);
 		pnlChiTietXe.setPreferredSize(new Dimension(650, 900));
 		horizontalBox.add(pnlChiTietXe);
 		pnlChiTietXe.setLayout(new BoxLayout(pnlChiTietXe, BoxLayout.X_AXIS));
@@ -124,7 +117,7 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 
 		cboTimKiem = new JComboBox<String>();
 		cboTimKiem.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		cboTimKiem.setModel(new DefaultComboBoxModel<String>(new String[] { "Tên xe", "Mã xe", "Hãng", "Phân khối" }));
+		cboTimKiem.setModel(new DefaultComboBoxModel(new String[] { "Tên xe", "Mã xe" }));
 		cboTimKiem.setMaximumSize(new Dimension(250, 40));
 		cboTimKiem.setPreferredSize(new Dimension(100, 50));
 		horizontalBox_2.add(cboTimKiem);
@@ -143,6 +136,97 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 
 		Component rigidArea_7 = Box.createRigidArea(new Dimension(20, 20));
 		verticalBox.add(rigidArea_7);
+
+		Box horizontalBox_2_2 = Box.createHorizontalBox();
+		verticalBox.add(horizontalBox_2_2);
+
+		Component rigidArea_1_2 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2.add(rigidArea_1_2);
+
+		JLabel lblHng = new JLabel("Hãng:");
+		lblHng.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_2_2.add(lblHng);
+
+		Component rigidArea_1_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2.add(rigidArea_1_1);
+
+		JComboBox<String> cboHang = new JComboBox<String>();
+		cboHang.setModel(new DefaultComboBoxModel(new String[] { "Tất cả", "Honda", "Yamaha", "SYM", "Suzuki",
+				"Piaggio", "Ducati", "Kawasaki", "Harley Davidson" }));
+		cboHang.setPreferredSize(new Dimension(100, 50));
+		cboHang.setMaximumSize(new Dimension(250, 40));
+		cboHang.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_2_2.add(cboHang);
+
+		Component rigidArea_1_3 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2.add(rigidArea_1_3);
+
+		JLabel lblLoiXe = new JLabel("Loại xe:");
+		lblLoiXe.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_2_2.add(lblLoiXe);
+
+		Component rigidArea_3_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2.add(rigidArea_3_1);
+
+		JComboBox<String> cboLoaiXe = new JComboBox<String>();
+		cboLoaiXe.setModel(
+				new DefaultComboBoxModel(new String[] { "Tất cả", "Xe số", "Xe tay ga", "Xe côn tay", "Xe mô tô" }));
+		cboLoaiXe.setPreferredSize(new Dimension(100, 50));
+		cboLoaiXe.setMaximumSize(new Dimension(250, 40));
+		cboLoaiXe.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_2_2.add(cboLoaiXe);
+
+		Component rigidArea_4_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2.add(rigidArea_4_1);
+
+		Component rigidArea_7_2 = Box.createRigidArea(new Dimension(20, 20));
+		verticalBox.add(rigidArea_7_2);
+
+		Box horizontalBox_2_2_1 = Box.createHorizontalBox();
+		verticalBox.add(horizontalBox_2_2_1);
+
+		Component rigidArea_1_4 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2_1.add(rigidArea_1_4);
+
+		JLabel lblDngXe = new JLabel("Dòng xe:");
+		lblDngXe.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_2_2_1.add(lblDngXe);
+
+		Component rigidArea_1_1_1 = Box.createRigidArea(new Dimension(20, 20));
+		rigidArea_1_1_1.setPreferredSize(new Dimension(5, 20));
+		horizontalBox_2_2_1.add(rigidArea_1_1_1);
+
+		JComboBox<String> cboDongXe = new JComboBox<String>();
+		cboDongXe.setModel(new DefaultComboBoxModel(
+				new String[] { "Tất cả", "Wave", "Winner", "Air Blade", "SH", "Vision", "Lead", "Cub" }));
+		cboDongXe.setPreferredSize(new Dimension(50, 50));
+		cboDongXe.setMaximumSize(new Dimension(250, 40));
+		cboDongXe.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_2_2_1.add(cboDongXe);
+
+		Component rigidArea_1_5 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2_1.add(rigidArea_1_5);
+
+		JLabel cboXuatSu = new JLabel("Xuất sứ:");
+		cboXuatSu.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_2_2_1.add(cboXuatSu);
+
+		Component rigidArea_3_1_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2_1.add(rigidArea_3_1_1);
+
+		JComboBox<String> cboTimKiem_1_1_1 = new JComboBox<String>();
+		cboTimKiem_1_1_1.setModel(new DefaultComboBoxModel(
+				new String[] { "Tất cả", "Việt Nam", "Nhật Bản", "Hàn Quốc", "Trung Quốc", "Mỹ", "Đức", "Thái Lan" }));
+		cboTimKiem_1_1_1.setPreferredSize(new Dimension(100, 50));
+		cboTimKiem_1_1_1.setMaximumSize(new Dimension(250, 40));
+		cboTimKiem_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_2_2_1.add(cboTimKiem_1_1_1);
+
+		Component rigidArea_4_1_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2_2_1.add(rigidArea_4_1_1);
+
+		Component rigidArea_7_1 = Box.createRigidArea(new Dimension(20, 20));
+		verticalBox.add(rigidArea_7_1);
 
 		Box horizontalBox_3 = Box.createHorizontalBox();
 		verticalBox.add(horizontalBox_3);
@@ -235,6 +319,14 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Component horizontalGlue = Box.createHorizontalGlue();
 		horizontalBox_4.add(horizontalGlue);
 
+		btnXemChiTiet = new JButton("Chi tiết");
+		horizontalBox_4.add(btnXemChiTiet);
+		btnXemChiTiet.setPreferredSize(new Dimension(150, 50));
+		btnXemChiTiet.setMaximumSize(new Dimension(200, 50));
+		btnXemChiTiet.setForeground(Color.WHITE);
+		btnXemChiTiet.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnXemChiTiet.setBackground(Color.LIGHT_GRAY);
+
 		Component rigidArea_12 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_4.add(rigidArea_12);
 
@@ -247,13 +339,13 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Component rigidArea_13 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_5.add(rigidArea_13);
 
-		btnXemChiTiet = new JButton("Xem chi tiết");
-		btnXemChiTiet.setPreferredSize(new Dimension(240, 50));
-		btnXemChiTiet.setMaximumSize(new Dimension(200, 50));
-		btnXemChiTiet.setForeground(Color.WHITE);
-		btnXemChiTiet.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnXemChiTiet.setBackground(Color.LIGHT_GRAY);
-		horizontalBox_5.add(btnXemChiTiet);
+		btnThemKH = new JButton("Thêm KH");
+		horizontalBox_5.add(btnThemKH);
+		btnThemKH.setPreferredSize(new Dimension(150, 40));
+		btnThemKH.setMaximumSize(new Dimension(200, 50));
+		btnThemKH.setForeground(Color.WHITE);
+		btnThemKH.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnThemKH.setBackground(Color.LIGHT_GRAY);
 
 		Component horizontalGlue_1 = Box.createHorizontalGlue();
 		horizontalBox_5.add(horizontalGlue_1);
@@ -277,6 +369,18 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Component rigidArea_12_2 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_5.add(rigidArea_12_2);
 
+		btnThem = new JButton("Thêm");
+		horizontalBox_5.add(btnThem);
+		btnThem.setIcon(new ImageIcon(GD_TrangChu.class.getResource("/img/baseline_add_shopping_cart_white_18dp.png")));
+		btnThem.setForeground(Color.WHITE);
+		btnThem.setBackground(new Color(30, 144, 255));
+		btnThem.setPreferredSize(new Dimension(150, 50));
+		btnThem.setMaximumSize(new Dimension(200, 50));
+		btnThem.setFont(new Font("Tahoma", Font.BOLD, 20));
+
+		Component rigidArea_15_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_5.add(rigidArea_15_1);
+
 		Component rigidArea_8_1 = Box.createRigidArea(new Dimension(20, 20));
 		verticalBox.add(rigidArea_8_1);
 
@@ -286,40 +390,8 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Box horizontalBox_5_2 = Box.createHorizontalBox();
 		verticalBox.add(horizontalBox_5_2);
 
-		Component rigidArea_14 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_5_2.add(rigidArea_14);
-
-		btnThemKH = new JButton("Thêm khách hàng");
-		btnThemKH.setPreferredSize(new Dimension(240, 50));
-		btnThemKH.setMaximumSize(new Dimension(200, 50));
-		btnThemKH.setForeground(Color.WHITE);
-		btnThemKH.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnThemKH.setBackground(Color.LIGHT_GRAY);
-		horizontalBox_5_2.add(btnThemKH);
-
-		Component rigidArea_15 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_5_2.add(rigidArea_15);
-
-		Component horizontalGlue_2 = Box.createHorizontalGlue();
-		horizontalBox_5_2.add(horizontalGlue_2);
-
-		btnThem = new JButton("Thêm");
-		btnThem.setIcon(new ImageIcon(GD_TrangChu.class.getResource("/img/baseline_add_shopping_cart_white_18dp.png")));
-		btnThem.setForeground(Color.WHITE);
-		btnThem.setBackground(new Color(30, 144, 255));
-		btnThem.setPreferredSize(new Dimension(170, 50));
-		btnThem.setMaximumSize(new Dimension(200, 50));
-		btnThem.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_5_2.add(btnThem);
-
-		Component rigidArea_15_1 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_5_2.add(rigidArea_15_1);
-
-		Component rigidArea_16 = Box.createRigidArea(new Dimension(20, 20));
-		rigidArea_16.setPreferredSize(new Dimension(20, 40));
-		verticalBox.add(rigidArea_16);
-
 		pnlChiTietHoaDon = new JPanel();
+		pnlChiTietHoaDon.setBackground(Color.WHITE);
 		pnlChiTietHoaDon.setPreferredSize(new Dimension(650, 900));
 		horizontalBox.add(pnlChiTietHoaDon);
 		pnlChiTietHoaDon.setLayout(new BoxLayout(pnlChiTietHoaDon, BoxLayout.X_AXIS));
@@ -351,42 +423,38 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Box horizontalBox_3_1 = Box.createHorizontalBox();
 		verticalBox_1.add(horizontalBox_3_1);
 
-		lblMaHoaDon = new JLabel("Mã hóa đơn:");
-		lblMaHoaDon.setMaximumSize(new Dimension(300, 40));
-		lblMaHoaDon.setPreferredSize(new Dimension(150, 40));
-		lblMaHoaDon.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_3_1.add(lblMaHoaDon);
+		JLabel lblMaHoaDon_1 = new JLabel("Mã hóa đơn:");
+		lblMaHoaDon_1.setPreferredSize(new Dimension(150, 40));
+		lblMaHoaDon_1.setMaximumSize(new Dimension(300, 40));
+		lblMaHoaDon_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_3_1.add(lblMaHoaDon_1);
 
 		Component rigidArea_19 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1.add(rigidArea_19);
 
-		txtMaHoaDon = new JTextField();
-		txtMaHoaDon.setEditable(false);
-		txtMaHoaDon.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtMaHoaDon.setPreferredSize(new Dimension(250, 40));
-		txtMaHoaDon.setMaximumSize(new Dimension(400, 40));
-		txtMaHoaDon.setColumns(10);
-		horizontalBox_3_1.add(txtMaHoaDon);
+		lblMaHoaDon = new JLabel("HD123456");
+		lblMaHoaDon.setMaximumSize(new Dimension(300, 40));
+		lblMaHoaDon.setPreferredSize(new Dimension(150, 40));
+		lblMaHoaDon.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_3_1.add(lblMaHoaDon);
 
 		Component rigidArea_20 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1.add(rigidArea_20);
 
-		JLabel lblNgayLap = new JLabel("Ngày lập HD:");
-		lblNgayLap.setMaximumSize(new Dimension(85, 40));
-		lblNgayLap.setPreferredSize(new Dimension(150, 40));
-		lblNgayLap.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_3_1.add(lblNgayLap);
+		JLabel lblNgayLap_1 = new JLabel("Ngày lập HD:");
+		lblNgayLap_1.setPreferredSize(new Dimension(150, 40));
+		lblNgayLap_1.setMaximumSize(new Dimension(150, 40));
+		lblNgayLap_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_3_1.add(lblNgayLap_1);
 
 		Component rigidArea_19_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1.add(rigidArea_19_1);
 
-		txtNgayLap = new JTextField();
-		txtNgayLap.setEditable(false);
-		txtNgayLap.setPreferredSize(new Dimension(250, 40));
-		txtNgayLap.setMaximumSize(new Dimension(400, 40));
-		txtNgayLap.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtNgayLap.setColumns(10);
-		horizontalBox_3_1.add(txtNgayLap);
+		JLabel lblNgayLap = new JLabel("20-20-2020");
+		lblNgayLap.setMaximumSize(new Dimension(150, 40));
+		lblNgayLap.setPreferredSize(new Dimension(150, 40));
+		lblNgayLap.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_3_1.add(lblNgayLap);
 
 		Component rigidArea_20_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1.add(rigidArea_20_1);
@@ -408,25 +476,25 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		txtSoCMT.setPreferredSize(new Dimension(250, 40));
 		txtSoCMT.setMaximumSize(new Dimension(400, 40));
 		txtSoCMT.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtSoCMT.setColumns(10);
+		txtSoCMT.setColumns(15);
 		horizontalBox_4_1.add(txtSoCMT);
 
 		Component rigidArea_20_2 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_4_1.add(rigidArea_20_2);
 
-		JLabel lblHTnKh = new JLabel("Tên KH:");
-		lblHTnKh.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_4_1.add(lblHTnKh);
+		JLabel lblHTnKh_1 = new JLabel("Tên KH:");
+		lblHTnKh_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_4_1.add(lblHTnKh_1);
 
 		Component rigidArea_19_1_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_4_1.add(rigidArea_19_1_1);
 
-		txtTenKhachHang = new JTextField();
-		txtTenKhachHang.setPreferredSize(new Dimension(250, 40));
-		txtTenKhachHang.setMaximumSize(new Dimension(400, 40));
-		txtTenKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtTenKhachHang.setColumns(10);
-		horizontalBox_4_1.add(txtTenKhachHang);
+		JLabel lblHTnKh = new JLabel("Nguyễn Trần Nhật Hào");
+		lblHTnKh.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_4_1.add(lblHTnKh);
+
+		Component horizontalGlue_3 = Box.createHorizontalGlue();
+		horizontalBox_4_1.add(horizontalGlue_3);
 
 		Component rigidArea_20_1_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_4_1.add(rigidArea_20_1_1);
@@ -456,21 +524,23 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Component rigidArea_20_3 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1_1.add(rigidArea_20_3);
 
-		JLabel lblNamSinh = new JLabel("Năm sinh:");
-		lblNamSinh.setMaximumSize(new Dimension(85, 40));
-		lblNamSinh.setPreferredSize(new Dimension(150, 40));
-		lblNamSinh.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_3_1_1.add(lblNamSinh);
+		JLabel lblNgySinh = new JLabel("Ngày sinh:");
+		lblNgySinh.setPreferredSize(new Dimension(150, 40));
+		lblNgySinh.setMaximumSize(new Dimension(85, 40));
+		lblNgySinh.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_3_1_1.add(lblNgySinh);
 
 		Component rigidArea_19_1_2 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1_1.add(rigidArea_19_1_2);
 
-		txtNamSinh = new JTextField();
-		txtNamSinh.setPreferredSize(new Dimension(250, 40));
-		txtNamSinh.setMaximumSize(new Dimension(400, 40));
-		txtNamSinh.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtNamSinh.setColumns(10);
-		horizontalBox_3_1_1.add(txtNamSinh);
+		JLabel lblNamSinh = new JLabel("20-20-2020");
+		lblNamSinh.setMaximumSize(new Dimension(85, 40));
+		lblNamSinh.setPreferredSize(new Dimension(150, 40));
+		lblNamSinh.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horizontalBox_3_1_1.add(lblNamSinh);
+
+		Component horizontalGlue_4 = Box.createHorizontalGlue();
+		horizontalBox_3_1_1.add(horizontalGlue_4);
 
 		Component rigidArea_20_1_2 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1_1.add(rigidArea_20_1_2);
@@ -481,19 +551,19 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Box horizontalBox_3_1_2 = Box.createHorizontalBox();
 		verticalBox_1.add(horizontalBox_3_1_2);
 
-		JLabel lblDiaChi = new JLabel("Địa chỉ:");
-		lblDiaChi.setFont(new Font("Tahoma", Font.BOLD, 20));
+		JLabel lblDiaChi_1 = new JLabel("Địa chỉ:");
+		lblDiaChi_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_3_1_2.add(lblDiaChi_1);
+
+		Component rigidArea_21_1 = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_3_1_2.add(rigidArea_21_1);
+
+		JLabel lblDiaChi = new JLabel("..................................................");
+		lblDiaChi.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		horizontalBox_3_1_2.add(lblDiaChi);
 
-		Component rigidArea_19_3_1 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_3_1_2.add(rigidArea_19_3_1);
-
-		txtDiaChi = new JTextField();
-		txtDiaChi.setPreferredSize(new Dimension(400, 40));
-		txtDiaChi.setMaximumSize(new Dimension(2000, 40));
-		txtDiaChi.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtDiaChi.setColumns(20);
-		horizontalBox_3_1_2.add(txtDiaChi);
+		Component horizontalGlue_2 = Box.createHorizontalGlue();
+		horizontalBox_3_1_2.add(horizontalGlue_2);
 
 		Component rigidArea_21 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1_2.add(rigidArea_21);
@@ -544,20 +614,22 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Box horizontalBox_6 = Box.createHorizontalBox();
 		verticalBox_3.add(horizontalBox_6);
 
-		JLabel lblTongTien = new JLabel("Tổng tiền:");
-		lblTongTien.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_6.add(lblTongTien);
+		JLabel lblTongTien_1 = new JLabel("Tổng tiền:");
+		lblTongTien_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_6.add(lblTongTien_1);
 
 		Component rigidArea_25 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_6.add(rigidArea_25);
 
-		txtTongTien = new JTextField();
-		txtTongTien.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtTongTien.setEditable(false);
-		txtTongTien.setMaximumSize(new Dimension(2147483647, 50));
-		txtTongTien.setPreferredSize(new Dimension(100, 50));
-		horizontalBox_6.add(txtTongTien);
-		txtTongTien.setColumns(10);
+		JLabel lblTongTien = new JLabel("1.500.000.000");
+		lblTongTien.setForeground(Color.RED);
+		lblTongTien.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_6.add(lblTongTien);
+
+		JLabel lblVn = new JLabel("  VNĐ");
+		lblVn.setForeground(Color.RED);
+		lblVn.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_6.add(lblVn);
 
 		Component rigidArea_30 = Box.createRigidArea(new Dimension(20, 20));
 		verticalBox_3.add(rigidArea_30);
@@ -592,13 +664,15 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 		Component rigidArea_25_2 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_8.add(rigidArea_25_2);
 
-		txtTienTraLai = new JTextField();
-		txtTienTraLai.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtTienTraLai.setEditable(false);
-		txtTienTraLai.setMaximumSize(new Dimension(2147483647, 50));
-		txtTienTraLai.setPreferredSize(new Dimension(100, 50));
-		txtTienTraLai.setColumns(10);
-		horizontalBox_8.add(txtTienTraLai);
+		JLabel lblTongTien_2 = new JLabel("1.500.000");
+		lblTongTien_2.setForeground(Color.RED);
+		lblTongTien_2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_8.add(lblTongTien_2);
+
+		JLabel lblVn_1 = new JLabel("  VNĐ");
+		lblVn_1.setForeground(Color.RED);
+		lblVn_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		horizontalBox_8.add(lblVn_1);
 
 		Component rigidArea_23 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_3_1_4.add(rigidArea_23);
@@ -689,10 +763,12 @@ public class GD_TrangChu extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object o = e.getSource();
-		if(o.equals(btnThanhToan)) {
+		if (o.equals(btnThanhToan)) {
 			new GD_ChiTietHoaDon().setVisible(true);
-		}else if(o.equals(btnXemChiTiet)) {
-			new GD_XemChiTietXeMay().setVisible(true);
+		} else if (o.equals(btnXemChiTiet)) {
+			new GD_ChiTietXeMay().setVisible(true);
+		} else if (o.equals(btnThemKH)) {
+			new GD_ThemKhachHang().setVisible(true);
 		}
 	}
 

@@ -44,7 +44,6 @@ public class GD_KhachHang extends JPanel implements ActionListener {
 	private JButton btnXemChiTiet;
 	private JButton btnXoa;
 	private JButton btnCapNhat;
-	private JButton btnThem;
 
 	/**
 	 * Create the panel.
@@ -232,19 +231,6 @@ public class GD_KhachHang extends JPanel implements ActionListener {
 		btnCapNhat.setFont(new Font("Tahoma", Font.BOLD, 20));
 		horizontalBox_4.add(btnCapNhat);
 
-		Component rigidArea_9_2_1 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_4.add(rigidArea_9_2_1);
-
-		btnThem = new JButton("Thêm");
-		btnThem.setIcon(
-				new ImageIcon(GD_KhachHang.class.getResource("/img/baseline_create_new_folder_white_18dp.png")));
-		btnThem.setBackground(new Color(0, 128, 0));
-		btnThem.setForeground(Color.WHITE);
-		btnThem.setPreferredSize(new Dimension(140, 50));
-		btnThem.setMaximumSize(new Dimension(300, 50));
-		btnThem.setFont(new Font("Tahoma", Font.BOLD, 20));
-		horizontalBox_4.add(btnThem);
-
 		Component rigidArea_10_1 = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_4.add(rigidArea_10_1);
 
@@ -259,7 +245,6 @@ public class GD_KhachHang extends JPanel implements ActionListener {
 		btnCuoi.addActionListener(this);
 		btnDau.addActionListener(this);
 		btnSau.addActionListener(this);
-		btnThem.addActionListener(this);
 		btnTruoc.addActionListener(this);
 		btnXemChiTiet.addActionListener(this);
 		btnXoa.addActionListener(this);
@@ -272,13 +257,13 @@ public class GD_KhachHang extends JPanel implements ActionListener {
 		if(o.equals(btnXemChiTiet)) {
 			new GD_ChiTietKhachHang().setVisible(true);
 		}
-		else if (o.equals(btnThem)) {
-			this.removeAll();
-			this.setLayout(new BorderLayout());
-			this.add(new GD_ThemKhachHang());
-			this.validate();
-			this.repaint();
-		}
+//		else if (o.equals(btnThem)) {
+//			this.removeAll();
+//			this.setLayout(new BorderLayout());
+//			this.add(new GD_ThemKhachHang());
+//			this.validate();
+//			this.repaint();
+//		}
 		else if (o.equals(btnCapNhat)) {
 			this.removeAll();
 			this.setLayout(new BorderLayout());

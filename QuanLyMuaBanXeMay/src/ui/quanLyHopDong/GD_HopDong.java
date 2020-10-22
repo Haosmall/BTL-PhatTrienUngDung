@@ -246,12 +246,7 @@ public class GD_HopDong extends JPanel implements ActionListener{
 			this.validate();
 			this.repaint();
 		}else if (o.equals(btnXemChiTiet)) {
-//			this.removeAll();
-//			this.setLayout(new BorderLayout());
-//			this.add(new GD_ChiTietHD());
-//			this.validate();
-//			this.repaint();
-			new GD_ChiTietHoaDon().setVisible(true);
+			new GD_ChiTietHopDong().setVisible(true);
 		}
 	}
 

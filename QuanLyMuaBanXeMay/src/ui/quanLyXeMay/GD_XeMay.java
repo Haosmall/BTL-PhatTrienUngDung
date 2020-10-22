@@ -281,7 +281,7 @@ public class GD_XeMay extends JPanel implements ActionListener{
 		}else if (o.equals(btnCapNhat)) {
 			chuyenManHinh(new GD_CapNhatXeMay());
 		}else if (o.equals(btnXemChiTiet)) {
-			chuyenManHinh(new GD_XemChiTietXeMay());
+			new GD_ChiTietXeMay().setVisible(true);
 		}
 		
 	}
